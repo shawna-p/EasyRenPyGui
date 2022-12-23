@@ -4,6 +4,8 @@
 ## them. Lines beginning with a single '#' mark are commented-out code, and you
 ## may want to uncomment them when appropriate.
 
+## TODO: Change these top three strings with "FreshProject" to the
+## name of your own project!
 
 ## Basics ######################################################################
 
@@ -14,23 +16,32 @@
 
 define config.name = _("FreshProject")
 
-
-## Determines if the title given above is shown on the main menu screen. Set
-## this to False to hide the title.
-
-define gui.show_name = True
-
-
-## The version of the game.
-
-define config.version = "1.0"
-
-
 ## A short name for the game used for executables and directories in the built
 ## distribution. This must be ASCII-only, and must not contain spaces, colons,
 ## or semicolons.
 
 define build.name = "FreshProject"
+
+## Save directory ##############################################################
+##
+## Controls the platform-specific place Ren'Py will place the save files for
+## this game. The save files will be placed in:
+##
+## Windows: %APPDATA\RenPy\<config.save_directory>
+##
+## Macintosh: $HOME/Library/RenPy/<config.save_directory>
+##
+## Linux: $HOME/.renpy/<config.save_directory>
+##
+## This generally should not be changed, and if it is, should always be a
+## literal string, not an expression.
+
+define config.save_directory = "FreshProject-1671818013"
+
+
+## The version of the game.
+
+define config.version = "1.0"
 
 
 ## Sounds and music ############################################################
@@ -84,11 +95,6 @@ define config.after_load_transition = None
 
 define config.end_game_transition = None
 
-
-## A variable to set the transition used when the game starts does not exist.
-## Instead, use a with statement after showing the initial scene.
-
-
 ## Window management ###########################################################
 ##
 ## This controls when the dialogue window is displayed. If "show", it is always
@@ -121,30 +127,31 @@ default preferences.text_cps = 0
 
 default preferences.afm_time = 15
 
-
-## Save directory ##############################################################
-##
-## Controls the platform-specific place Ren'Py will place the save files for
-## this game. The save files will be placed in:
-##
-## Windows: %APPDATA\RenPy\<config.save_directory>
-##
-## Macintosh: $HOME/Library/RenPy/<config.save_directory>
-##
-## Linux: $HOME/.renpy/<config.save_directory>
-##
-## This generally should not be changed, and if it is, should always be a
-## literal string, not an expression.
-
-define config.save_directory = "FreshProject-1671818013"
-
-
 ## Icon ########################################################################
 ##
 ## The icon displayed on the taskbar or dock.
 
 define config.window_icon = "gui/window_icon.png"
 
+## Custom Options ##############################################################
+##
+## Config variables that I like to have set up.
+
+## Convenience for not crashing on grids without enough items
+## https://www.renpy.org/doc/html/config.html#var-config.allow_underfull_grids
+define config.allow_underfull_grids = True
+
+## Default volume % for the various volume sliders
+## https://www.renpy.org/doc/html/preferences.html#audio-channel-defaults
+define config.default_music_volume = 0.5
+define config.default_sfx_volume = 0.5
+define config.default_voice_volume = 0.5
+
+## The number of auto save slots Ren'Py will save to before it
+## starts overwriting the first one
+define config.autosave_slots = 6
+## Same thing, but for quick save
+define config.quicksave_slots = 6
 
 ## Build configuration #########################################################
 ##
