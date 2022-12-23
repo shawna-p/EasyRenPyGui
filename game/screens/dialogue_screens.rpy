@@ -64,7 +64,6 @@ style namebox:
 
 # Style for the text with the speaker's name
 style say_label:
-    font "DejaVuSans.ttf"
     color gui.accent_color
     xalign 0.0
     yalign 0.5
