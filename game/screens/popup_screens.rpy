@@ -117,6 +117,61 @@ style skip_triangle:
     ## glyph in it.
     font "DejaVuSans.ttf"
 
+## Auto indicator screen #######################################################
+##
+## This screen is used to indicate that auto-forward mode is in progress.
+## Added by me, Fen.
+##
+
+init python:
+    def auto_indicator():
+        """
+        A function which, when called, determines if the Auto indicator
+        should be shown on-screen or not.
+        """
+
+        # Auto mode is on
+        if preferences.afm_enable and not renpy.get_screen('auto_indicator'):
+            renpy.show_screen('auto_indicator')
+        # Auto mode is off
+        elif not preferences.afm_enable and renpy.get_screen('auto_indicator'):
+            renpy.hide_screen('auto_indicator')
+
+        return
+
+    # This adds the auto indicator to a list of overlay functions
+    # so that it can automatically show the Auto indicator.
+    if auto_indicator not in config.overlay_functions:
+        config.overlay_functions.append(auto_indicator)
+
+screen auto_indicator():
+
+    zorder 100
+    style_prefix "auto"
+
+    frame:
+        has hbox
+
+        text _("Auto-Forward")
+
+        text "▸" at delayed_blink(0.0, 1.0) style "skip_triangle"
+
+
+style auto_hbox:
+    spacing 9
+
+style auto_frame:
+    is empty
+    ypos gui.skip_ypos
+    background Frame("gui/skip.png", 24, 8, 75, 8, tile=False)
+    padding (24, 8, 75, 8)
+
+style auto_text:
+    size 24
+
+style auto_triangle:
+    is skip_triangle
+
 
 ## Notify screen ###############################################################
 ##
@@ -153,4 +208,6 @@ style notify_frame:
 
 style notify_text:
     size 24
+
+
 
