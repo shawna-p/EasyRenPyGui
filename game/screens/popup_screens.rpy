@@ -6,7 +6,7 @@
 ##
 ## https://www.renpy.org/doc/html/screen_special.html#confirm
 
-screen confirm(message, yes_action, no_action):
+screen confirm(message, yes_action, no_action=None):
 
     ## Ensure other screens do not get input while this screen is displayed.
     modal True
@@ -15,51 +15,53 @@ screen confirm(message, yes_action, no_action):
 
     style_prefix "confirm"
 
-    add "gui/overlay/confirm.png"
+    add "#0008" # You can replace this with your own overlay image
 
     frame:
+        has vbox
 
-        vbox:
-            xalign .5
-            yalign .5
-            spacing 45
+        label _(message) style "confirm_prompt"
 
-            label _(message):
-                style "confirm_prompt"
-                xalign 0.5
+        hbox:
 
-            hbox:
-                xalign 0.5
-                spacing 150
-
-                textbutton _("Yes") action yes_action
-                textbutton _("No") action no_action
+            textbutton _("Confirm") action yes_action
+            # Modified so you can just have a confirmation prompt
+            if no_action is not None:
+                textbutton _("Cancel") action no_action
 
     ## Right-click and escape answer "no".
-    key "game_menu" action no_action
-
-
-style confirm_frame is gui_frame
-style confirm_prompt is gui_prompt
-style confirm_prompt_text is gui_prompt_text
-style confirm_button is gui_medium_button
-style confirm_button_text is gui_medium_button_text
+    if no_action is not None:
+        key "game_menu" action no_action
+    else:
+        key "game_menu" action yes_action
 
 style confirm_frame:
-    background Frame([ "gui/confirm_frame.png", "gui/frame.png"], gui.confirm_frame_borders, tile=gui.frame_tile)
-    padding gui.confirm_frame_borders.padding
-    xalign .5
-    yalign .5
+    background Frame("gui/frame.png", 60, 60, 60, 60, tile=False)
+    padding (60, 60, 60, 60)
+    xalign 0.5
+    yalign 0.5
+
+style confirm_vbox:
+    align (0.5, 0.5)
+    spacing 45
+
+style confirm_prompt:
+    xalign 0.5
 
 style confirm_prompt_text:
     text_align 0.5
+    align (0.5, 0.5)
     layout "subtitle"
 
+style confirm_hbox:
+    xalign 0.5
+    spacing 150
+
 style confirm_button:
-    properties gui.button_properties("confirm_button")
+    xalign 0.5
 
 style confirm_button_text:
-    properties gui.button_text_properties("confirm_button")
+    text_align 0.5
 
 
 ## Skip indicator screen #######################################################
@@ -75,15 +77,13 @@ screen skip_indicator():
     style_prefix "skip"
 
     frame:
+        has hbox
 
-        hbox:
-            spacing 9
+        text _("Skipping")
 
-            text _("Skipping")
-
-            text "▸" at delayed_blink(0.0, 1.0) style "skip_triangle"
-            text "▸" at delayed_blink(0.2, 1.0) style "skip_triangle"
-            text "▸" at delayed_blink(0.4, 1.0) style "skip_triangle"
+        text "▸" at delayed_blink(0.0, 1.0) style "skip_triangle"
+        text "▸" at delayed_blink(0.2, 1.0) style "skip_triangle"
+        text "▸" at delayed_blink(0.4, 1.0) style "skip_triangle"
 
 
 ## This transform is used to blink the arrows one after another.
@@ -99,20 +99,20 @@ transform delayed_blink(delay, cycle):
         pause (cycle - .4)
         repeat
 
-
-style skip_frame is empty
-style skip_text is gui_text
-style skip_triangle is skip_text
+style skip_hbox:
+    spacing 9
 
 style skip_frame:
+    is empty
     ypos gui.skip_ypos
-    background Frame("gui/skip.png", gui.skip_frame_borders, tile=gui.frame_tile)
-    padding gui.skip_frame_borders.padding
+    background Frame("gui/skip.png", 24, 8, 75, 8, tile=False)
+    padding (24, 8, 75, 8)
 
 style skip_text:
-    size gui.notify_text_size
+    size 24
 
 style skip_triangle:
+    is skip_text
     ## We have to use a font that has the BLACK RIGHT-POINTING SMALL TRIANGLE
     ## glyph in it.
     font "DejaVuSans.ttf"
@@ -144,15 +144,13 @@ transform notify_appear:
         linear .5 alpha 0.0
 
 
-style notify_frame is empty
-style notify_text is gui_text
-
 style notify_frame:
-    ypos gui.notify_ypos
+    is empty
+    ypos 68
 
-    background Frame("gui/notify.png", gui.notify_frame_borders, tile=gui.frame_tile)
-    padding gui.notify_frame_borders.padding
+    background Frame("gui/notify.png", 24, 8, 60, 8, tile=False)
+    padding (24, 8, 60, 8)
 
 style notify_text:
-    properties gui.text_properties("notify")
+    size 24
 

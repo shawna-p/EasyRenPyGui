@@ -26,8 +26,16 @@ label start:
 
     e "You've created a new Ren'Py game."
 
+    $ renpy.notify("This is a notification")
+
     e "Once you add a story, pictures, and music, you can release it to the world!"
 
+    menu:
+        "This is a sample choice menu"
+        "Choice 1":
+            pass
+        "Choice 2":
+            pass
     # This ends the game.
 
     return
