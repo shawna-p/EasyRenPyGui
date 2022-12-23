@@ -7,6 +7,8 @@
 ##
 ## https://www.renpy.org/doc/html/history.html
 
+define config.history_length = 250
+
 screen history():
 
     tag menu
@@ -14,28 +16,34 @@ screen history():
     ## Avoid predicting this screen, as it can be very large.
     predict False
 
-    use game_menu(_("History"), scroll=("vpgrid" if gui.history_height else "viewport"), yinitial=1.0):
+    add "#000b" # The background; can be whatever
+
+    use game_menu(_("History"))
+
+    viewport:
+        style_prefix 'game_menu'
+        mousewheel True draggable True pagekeys True
+        scrollbars "vertical"
+
+        has vbox
 
         style_prefix "history"
 
         for h in _history_list:
 
-            window:
-
-                ## This lays things out properly if history_height is None.
-                has fixed:
-                    yfit True
-
+            frame:
+                has hbox
                 if h.who:
-
-                    label h.who:
-                        style "history_name"
+                    label h.who style 'history_name':
                         substitute False
-
-                        ## Take the color of the who text from the Character, if
-                        ## set.
+                        ## Take the color of the who text
+                        ## from the Character, if set
                         if "color" in h.who_args:
                             text_color h.who_args["color"]
+                        xsize 200   # this number and the null width
+                                    # number should be the same
+                else:
+                    null width 200
 
                 $ what = renpy.filter_text_tags(h.what, allow=gui.history_allow_tags)
                 text what:
@@ -50,37 +58,27 @@ screen history():
 define gui.history_allow_tags = { "alt", "noalt", "rt", "rb", "art" }
 
 
-style history_window is empty
+style history_frame:
+    xsize 1400
+    ysize None
+    background None
 
-style history_name is gui_label
-style history_name_text is gui_label_text
-style history_text is gui_text
+style history_hbox:
+    spacing 20
 
-style history_label is gui_label
-style history_label_text is gui_label_text
-
-style history_window:
-    xfill True
-    ysize gui.history_height
+style history_vbox:
+    spacing 20
 
 style history_name:
-    xpos gui.history_name_xpos
-    xanchor gui.history_name_xalign
-    ypos gui.history_name_ypos
-    xsize gui.history_name_width
+    xalign 1.0
 
 style history_name_text:
-    min_width gui.history_name_width
-    text_align gui.history_name_xalign
+    text_align 1.0
+    align (1.0, 0.0)
+    color gui.accent_color
 
 style history_text:
-    xpos gui.history_text_xpos
-    ypos gui.history_text_ypos
-    xanchor gui.history_text_xalign
-    xsize gui.history_text_width
-    min_width gui.history_text_width
-    text_align gui.history_text_xalign
-    layout ("subtitle" if gui.history_text_xalign else "tex")
+    text_align 0.0
 
 style history_label:
     xfill True
