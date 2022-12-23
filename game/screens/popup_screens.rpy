@@ -104,7 +104,7 @@ style skip_hbox:
 
 style skip_frame:
     is empty
-    ypos gui.skip_ypos
+    ypos 15
     background Frame("gui/skip.png", 24, 8, 75, 8, tile=False)
     padding (24, 8, 75, 8)
 
@@ -162,7 +162,7 @@ style auto_hbox:
 
 style auto_frame:
     is empty
-    ypos gui.skip_ypos
+    ypos 15
     background Frame("gui/skip.png", 24, 8, 75, 8, tile=False)
     padding (24, 8, 75, 8)
 

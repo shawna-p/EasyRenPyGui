@@ -9,6 +9,12 @@
 ## https://www.renpy.org/doc/html/screen_special.html#save
 ## https://www.renpy.org/doc/html/screen_special.html#load
 
+
+## The width and height of thumbnails used by the save slots.
+define config.thumbnail_width = 384
+define config.thumbnail_height = 216
+
+
 screen save():
 
     tag menu
