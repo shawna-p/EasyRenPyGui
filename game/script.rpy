@@ -3,7 +3,7 @@
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
-define e = Character("Eileen")
+define e = Character("Eileen", kind=nvl)
 
 
 # The game starts here.
@@ -30,7 +30,7 @@ label start:
 
     e "Once you add a story, pictures, and music, you can release it to the world!"
 
-    menu:
+    menu (nvl=True):
         "This is a sample choice menu"
         "Choice 1":
             pass
