@@ -7,19 +7,6 @@
 ## this screen is intended to be used with one or more children, which are
 ## transcluded (placed) inside it.
 
-# viewport:
-#     yinitial yinitial
-#     scrollbars "vertical"
-#     mousewheel True
-#     draggable True
-#     pagekeys True
-
-#     side_yfill True
-
-#     vbox:
-#         transclude
-
-
 screen game_menu(title):
 
     style_prefix "game_menu"
@@ -79,3 +66,14 @@ style return_button:
     yalign 1.0
     yoffset -45
 
+style game_menu_viewport:
+    xsize config.screen_width-420
+    ysize config.screen_height-200
+    align (0.5, 0.5)
+
+style game_menu_side:
+    yfill True
+    align (1.0, 0.5)
+
+style game_menu_vscrollbar:
+    unscrollable "hide"

@@ -6,6 +6,13 @@
 ## There's nothing special about this screen, and hence it also serves as an
 ## example of how to make a custom screen.
 
+## Text that is placed on the game's about screen. Place the text between the
+## triple-quotes, and leave a blank line between paragraphs.
+
+define gui.about = _p("""
+""")
+
+
 screen about():
 
     tag menu
@@ -13,28 +20,28 @@ screen about():
     ## This use statement includes the game_menu screen inside this one. The
     ## vbox child is then included inside the viewport inside the game_menu
     ## screen.
-    use game_menu(_("About"), scroll="viewport"):
+    use game_menu(_("About"))
 
+    viewport:
+        style_prefix 'game_menu'
+        mousewheel True draggable True pagekeys True
+        scrollbars "vertical"
+
+        has vbox
         style_prefix "about"
 
-        vbox:
+        label "[config.name!t]"
+        text _("Version [config.version!t]\n")
 
-            label "[config.name!t]"
-            text _("Version [config.version!t]\n")
+        ## gui.about is usually set in options.rpy.
+        if gui.about:
+            text "[gui.about!t]\n"
 
-            ## gui.about is usually set in options.rpy.
-            if gui.about:
-                text "[gui.about!t]\n"
+        text _("Made with {a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only].\n\n[renpy.license!t]")
 
-            text _("Made with {a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only].\n\n[renpy.license!t]")
-
-
-style about_label is gui_label
-style about_label_text is gui_label_text
-style about_text is gui_text
 
 style about_label_text:
-    size gui.label_text_size
+    size 36
 
 
 ## Help screen #################################################################
@@ -49,27 +56,31 @@ screen help():
 
     default device = "keyboard"
 
-    use game_menu(_("Help"), scroll="viewport"):
+    use game_menu(_("Help"))
 
+    viewport:
+        style_prefix 'game_menu'
+        mousewheel True draggable True pagekeys True
+        scrollbars "vertical"
+
+        has vbox
         style_prefix "help"
+        spacing 23
 
-        vbox:
-            spacing 23
+        hbox:
 
-            hbox:
+            textbutton _("Keyboard") action SetScreenVariable("device", "keyboard")
+            textbutton _("Mouse") action SetScreenVariable("device", "mouse")
 
-                textbutton _("Keyboard") action SetScreenVariable("device", "keyboard")
-                textbutton _("Mouse") action SetScreenVariable("device", "mouse")
+            if GamepadExists():
+                textbutton _("Gamepad") action SetScreenVariable("device", "gamepad")
 
-                if GamepadExists():
-                    textbutton _("Gamepad") action SetScreenVariable("device", "gamepad")
-
-            if device == "keyboard":
-                use keyboard_help
-            elif device == "mouse":
-                use mouse_help
-            elif device == "gamepad":
-                use gamepad_help
+        if device == "keyboard":
+            use keyboard_help
+        elif device == "mouse":
+            use mouse_help
+        elif device == "gamepad":
+            use gamepad_help
 
 
 screen keyboard_help():

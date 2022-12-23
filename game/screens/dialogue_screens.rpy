@@ -195,7 +195,7 @@ style nvl_dialogue:
 
 # The style for dialogue said by the narrator in NVL
 style nvl_thought:
-    is_nvl_dialogue
+    is nvl_dialogue
 
 style nvl_button:
     xpos 675
