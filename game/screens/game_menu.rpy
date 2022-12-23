@@ -60,7 +60,6 @@ screen game_menu(title):
     if main_menu:
         key "game_menu" action ShowMenu("main_menu")
 
-
 style return_button:
     xpos 60
     yalign 1.0
@@ -77,3 +76,8 @@ style game_menu_side:
 
 style game_menu_vscrollbar:
     unscrollable "hide"
+
+style game_menu_label:
+    padding (10, 10)
+style game_menu_label_text:
+    size 45
