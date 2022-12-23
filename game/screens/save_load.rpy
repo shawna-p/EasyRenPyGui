@@ -6,12 +6,14 @@
 ## it again. Since they share nearly everything in common, both are implemented
 ## in terms of a third screen, file_slots.
 ##
-## https://www.renpy.org/doc/html/screen_special.html#save https://
-## www.renpy.org/doc/html/screen_special.html#load
+## https://www.renpy.org/doc/html/screen_special.html#save
+## https://www.renpy.org/doc/html/screen_special.html#load
 
 screen save():
 
     tag menu
+
+    add "#91e8fe72" # The background; can be whatever
 
     use file_slots(_("Save"))
 
@@ -20,113 +22,116 @@ screen load():
 
     tag menu
 
+    add "#91fefc72" # The background; can be whatever
+
     use file_slots(_("Load"))
 
 
 screen file_slots(title):
 
-    default page_name_value = FilePageNameInputValue(pattern=_("Page {}"), auto=_("Automatic saves"), quick=_("Quick saves"))
+    default page_name_value = FilePageNameInputValue(
+        pattern=_("Page {}"), auto=_("Automatic saves"),
+        quick=_("Quick saves"))
 
-    use game_menu(title):
+    use game_menu(title)
 
-        fixed:
+    fixed:
+        xsize 1500 xalign 1.0
+        ## This ensures the input will get the enter event before any of the
+        ## buttons do.
+        order_reverse True
 
-            ## This ensures the input will get the enter event before any of the
-            ## buttons do.
-            order_reverse True
+        ## The page name, which can be edited by clicking on it.
+        ## This can be pretty easily removed if you want.
+        ## Don't forget to also remove the `default` at the top if so.
+        button:
+            style "page_label"
+            key_events True
+            action page_name_value.Toggle()
 
-            ## The page name, which can be edited by clicking on a button.
-            button:
-                style "page_label"
+            input:
+                style "page_label_text"
+                value page_name_value
 
-                key_events True
-                xalign 0.5
-                action page_name_value.Toggle()
+        ## The grid of file slots.
+        grid 3 2:
+            style_prefix "slot"
 
-                input:
-                    style "page_label_text"
-                    value page_name_value
+            for i in range(3*2):
+                $ slot = i + 1
 
-            ## The grid of file slots.
-            grid gui.file_slot_cols gui.file_slot_rows:
-                style_prefix "slot"
+                button:
+                    action FileAction(slot)
+                    has vbox
 
-                xalign 0.5
-                yalign 0.5
+                    add FileScreenshot(slot) xalign 0.5
 
-                spacing gui.slot_spacing
+                    text FileTime(slot,
+                            format=_("{#file_time}%A, %B %d %Y, %H:%M"),
+                            empty=_("empty slot")):
+                        style "slot_time_text"
 
-                for i in range(gui.file_slot_cols * gui.file_slot_rows):
+                    text FileSaveName(slot) style "slot_name_text"
 
-                    $ slot = i + 1
+                    # This means the player can hover this save
+                    # slot and hit delete to delete it
+                    key "save_delete" action FileDelete(slot)
 
-                    button:
-                        action FileAction(slot)
+        ## Buttons to access other pages.
+        hbox:
+            style_prefix "page"
 
-                        has vbox
+            textbutton _("<") action FilePagePrevious()
 
-                        add FileScreenshot(slot) xalign 0.5
+            if config.has_autosave:
+                textbutton _("{#auto_page}A") action FilePage("auto")
 
-                        text FileTime(slot, format=_("{#file_time}%A, %B %d %Y, %H:%M"), empty=_("empty slot")):
-                            style "slot_time_text"
+            if config.has_quicksave:
+                textbutton _("{#quick_page}Q") action FilePage("quick")
 
-                        text FileSaveName(slot):
-                            style "slot_name_text"
+            ## range(1, 10) gives the numbers from 1 to 9.
+            for page in range(1, 10):
+                textbutton "[page]" action FilePage(page)
 
-                        key "save_delete" action FileDelete(slot)
+            textbutton _(">") action FilePageNext()
 
-            ## Buttons to access other pages.
-            hbox:
-                style_prefix "page"
-
-                xalign 0.5
-                yalign 1.0
-
-                spacing gui.page_spacing
-
-                textbutton _("<") action FilePagePrevious()
-
-                if config.has_autosave:
-                    textbutton _("{#auto_page}A") action FilePage("auto")
-
-                if config.has_quicksave:
-                    textbutton _("{#quick_page}Q") action FilePage("quick")
-
-                ## range(1, 10) gives the numbers from 1 to 9.
-                for page in range(1, 10):
-                    textbutton "[page]" action FilePage(page)
-
-                textbutton _(">") action FilePageNext()
-
-
-style page_label is gui_label
-style page_label_text is gui_label_text
-style page_button is gui_button
-style page_button_text is gui_button_text
-
-style slot_button is gui_button
-style slot_button_text is gui_button_text
-style slot_time_text is slot_button_text
-style slot_name_text is slot_button_text
 
 style page_label:
     xpadding 75
     ypadding 5
+    xalign 0.5
 
 style page_label_text:
     text_align 0.5
     layout "subtitle"
     hover_color gui.hover_color
 
-style page_button:
-    properties gui.button_properties("page_button")
+style slot_grid:
+    xalign 0.5
+    yalign 0.5
+    spacing 15
 
-style page_button_text:
-    properties gui.button_text_properties("page_button")
+style slot_time_text:
+    size 25
+    xalign 0.5
 
 style slot_button:
-    properties gui.button_properties("slot_button")
+    xysize (414, 309)
+    padding (15, 15, 15, 15)
+    background "gui/button/slot_[prefix_]background.png"
 
 style slot_button_text:
-    properties gui.button_text_properties("slot_button")
+    size 21
+    xalign 0.5
+    idle_color gui.idle_small_color
+    hover_color gui.hover_color
+    selected_idle_color gui.selected_color
+
+style page_hbox:
+    xalign 0.5
+    yalign 1.0
+    spacing 5
+
+style page_button:
+    padding (15, 6, 15, 6)
 
