@@ -23,7 +23,7 @@ style choice_vbox:
 
 style choice_button is default:
     xysize (1185, None)
-    idle_background Frame("gui/button/choice_[prefix_]background.png",
+    background Frame("gui/button/choice_[prefix_]background.png",
         150, 8, 150, 8, tile=False)
 
 style choice_button_text is default:
