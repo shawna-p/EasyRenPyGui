@@ -10,6 +10,8 @@ screen preferences():
 
     tag menu
 
+    add "#a8845dad" # The background; can be whatever
+
     use game_menu(_("Preferences"))
 
     viewport:

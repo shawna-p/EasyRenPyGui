@@ -16,7 +16,7 @@ screen history():
     ## Avoid predicting this screen, as it can be very large.
     predict False
 
-    add "#000b" # The background; can be whatever
+    add "#62a35e72" # The background; can be whatever
 
     use game_menu(_("History"))
 
