@@ -4,11 +4,21 @@ A template project intended to make it easier to replace the default GUI. This p
 
 The project is created for a 1920x1080 game resolution. You may adjust the dimensions in `gui.init`, but you will likely have to change many of the hardcoded style values to suit the new resolution.
 
-If you read nothing else, note that you MUST open `options.rpy` and change the top three values (config.name, build.name, and config.save_directory) to something unique for your project!
+## How to Use
 
-## Styles
+If you would like to quickly create a GitHub repository of your own using this template, simply click GitHub's "Use this template" button in green on the repository. The template is not a fork of this repository or connected to it, so you can then just use it like a regular repository. For more on using template repositories, see <https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template/>.
 
-Styles have also been greatly simplified not only by relocating and removing unused inheritance but also by substituting most gui values directly into the styles to make them easier to adjust. For example:
+Otherwise, you can use the "Code" dropdown next to the "Use this template" button and either download a ZIP of the repository or use GitHub Desktop to do so.
+
+Once you've got the repository downloaded onto your computer, unzip it if necessary and relocate the outermost EasyRenPyGui folder to your Ren'Py project folder and rename it to whatever your project name is.
+
+Finally, open `options.rpy` and change the top three values (config.name, build.name, and config.save_directory) to something unique for your project. You can then start the Ren'Py launcher and launch your new game template and begin adding to and modifying it.
+
+## Features
+
+### Styles
+
+Styles have been greatly simplified not only by relocating and removing unused inheritance but also by substituting most gui values directly into the styles to make them easier to adjust. For example:
 
 ```renpy
 style nvl_dialogue is say_dialogue
@@ -37,7 +47,7 @@ style nvl_dialogue:
 
 This reduces how often it's necessary to flip back and forth between different `.rpy` files to find the correct values, and also reduces the instances where changing one gui value can have a cascading effect changing multiple other styles across different screens.
 
-## Structural Changes
+### Structural Changes
 
 The screens usually found in `screens.rpy` have been split off into their own folder in mostly-individual files. Some shorter or related screens have been grouped together - e.g. the `popup_screens.rpy` file contains the `confirm`, `notify`, `skip_indicator`, and a new `auto_indicator` screen which functions the same as the `skip_indicator` screen but for auto-forward mode. The `auto_indicator` code may be easily removed if you don't wish to have an auto indicator.
 
@@ -78,7 +88,7 @@ You can find the default screens in the following files:
   * screen load
   * screen file_slots
 
-## game_menu and main_menu
+### game_menu and main_menu
 
 The `game_menu` screen, which is normally reused across every menu screen in a default Ren'Py project, has been heavily modified to only require a title and does not `transclude` contents. Thus it is only useful insofar as it includes the contents of the `navigation` screen (and the screen title).
 
@@ -86,13 +96,13 @@ This change means that most screens require a container of some kind inside whic
 
 The `main_menu` screen also includes its own copy of what was originally `screen navigation`, so that changing the main menu will not affect every other menu screen. `screen navigation` has been entirely omitted and instead `game_menu` largely takes that role for menu screens which aren't the main menu.
 
-## Omissions
+### Omissions
 
 All of the code which changes styles for variants, such as the "touch" variant of the quick_menu screen and the gui value updates for small screens, has been omitted. Thus, aside from some minor checks like the preferences not including windowed/fullscreen options, mobile builds will look identical to their desktop counterpart. The `gui/phone` folder has also been removed in accordance with this.
 
 The history screen is set up for variable-height entries only and differs the greatest from its default counterpart, using an `hbox` instead of positioning and labels. I have no plans to include the ability to have a fixed-height history log in this template, though you are of course free to adapt it to your own needs; this template is intended to be easy to modify.
 
-## Additions
+### Additions
 
 The following features are included in this template:
 
