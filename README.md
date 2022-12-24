@@ -12,7 +12,9 @@ Otherwise, you can use the "Code" dropdown next to the "Use this template" butto
 
 Once you've got the repository downloaded onto your computer, unzip it if necessary and relocate the outermost EasyRenPyGui folder to your Ren'Py project folder and rename it to whatever your project name is.
 
-Finally, open `options.rpy` and change the top three values (config.name, build.name, and config.save_directory) to something unique for your project. You can then start the Ren'Py launcher and launch your new game template and begin adding to and modifying it.
+Next, open `options.rpy` and change the top three values (config.name, build.name, and config.save_directory) to something unique for your project.
+
+Finally, inside the `audio/` and `images/` folders are two files called `delete this.md`. These are included only for the purposes of ensuring those folders are added to the repository and should be deleted. You can then start the Ren'Py launcher, launch your new game template, and begin adding to and modifying it.
 
 ## Features
 
