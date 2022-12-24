@@ -2,7 +2,7 @@
 
 A template project intended to make it easier to replace the default GUI. This project has ripped out most of the gui properties so that you are left only with the defaults and simplifies styles so that they are easier to understand and modify.
 
-The project is created for a 1920x1080 game resolution. You may adjust the dimensions in `gui.init`, but you will likely have to change many of the hardcoded style values to suit the new resolution.
+The project is created for a 1920x1080 game resolution and is based off of a the default game files generated for a game made with Ren'Py 7.5.3 or 8.0.3. You may adjust the dimensions in `gui.init`, but you will likely have to change many of the hardcoded style values to suit the new resolution.
 
 ## How to Use
 
@@ -51,7 +51,7 @@ This reduces how often it's necessary to flip back and forth between different `
 
 ### Structural Changes
 
-The screens usually found in `screens.rpy` have been split off into their own folder in mostly-individual files. Some shorter or related screens have been grouped together - e.g. the `popup_screens.rpy` file contains the `confirm`, `notify`, `skip_indicator`, and a new `auto_indicator` screen which functions the same as the `skip_indicator` screen but for auto-forward mode. The `auto_indicator` code may be easily removed if you don't wish to have an auto indicator.
+The screens usually found in `screens.rpy` have been split off into their own folder in mostly-individual files. Some shorter or related screens have been grouped together - e.g. the `popup_screens.rpy` file contains the `confirm`, `notify`, and `skip_indicator` screens.
 
 In particular, due to the immense reduction of code in `screens.rpy` and `gui.rpy`, this project only has a single file with the remainder of the code from both files, called `styles.rpy`. Some code previously located in `options.rpy` has also been relocated to be next to the relevant screens e.g. `gui.about` is now declared in `other_screens.rpy` above the `about` screen.
 
@@ -81,7 +81,6 @@ You can find the default screens in the following files:
 * popup_screens.rpy
   * screen confirm
   * screen skip_indicator
-  * screen auto_indicator (custom)
   * screen notify
 * preferences.rpy
   * screen preferences
@@ -106,14 +105,19 @@ The history screen is set up for variable-height entries only and differs the gr
 
 ### Additions
 
-The following features are included in this template:
+The following features not normally included in a default Ren'Py project are included in this template:
 
-* An auto-forward indicator, which displays similarly to the skip indicator while the player has auto-forward activated
-* A special_labels.rpy file with blank labels for `splashscreen` and `after_load`, which are often used in various projects. You may delete this file if you do not use these labels, or relocate the code elsewhere.
 * A section called **Custom Options** in `options.rpy` with defined configuration values for several configuration options I use frequently in my own projects.
 * Basic archiving code is added to `options.rpy` under the Build configuration section
 
-I have not included any further code for screens not included with Ren'Py by default, such as templates for gallery screens or accessibility options, though I may consider adding those down the line if it is requested.
+In addition, there is a folder inside `game/` called **optional files** with the following contents:
+
+* afm_indicator.rpy
+  * Includes an auto-forward indicator screen + accompanying code. It displays the screen similarly to the skip indicator, but while the player has auto-forward activated instead of while skipping.
+* special_labels.rpy
+  * This file includes blank labels for `splashscreen` and `after_load`, which are often used in various projects.
+
+Every file in the **optional files** folder is entirely self-contained and may be removed if it is unneeded.
 
 ## Terms of Use
 
