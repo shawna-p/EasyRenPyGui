@@ -24,11 +24,11 @@ label start:
 
     # These display lines of dialogue.
 
-    e "You've created a new Ren'Py game."
+    e "Did you change the name and save directory of the game in options.rpy?"
 
     $ renpy.notify("This is a notification")
 
-    e "Once you add a story, pictures, and music, you can release it to the world!"
+    e "If not, you should do so right away! Saves will not work properly until you do."
 
     menu:
         "This is a sample choice menu"
