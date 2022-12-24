@@ -1,4 +1,4 @@
-# Ren'Py Fresh Project
+# Easy Ren'Py GUI
 
 A template project intended to make it easier to replace the default GUI. This project has ripped out most of the gui properties so that you are left only with the defaults and simplifies styles so that they are easier to understand and modify.
 
