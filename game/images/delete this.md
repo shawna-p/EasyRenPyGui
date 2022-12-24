@@ -1,0 +1,1 @@
+This is a file only intended to be here so the images folder is not empty and can be checked into GitHub. Please delete this after you have cloned the repository.
