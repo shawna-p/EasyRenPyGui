@@ -55,6 +55,9 @@ screen game_menu(title):
         style "return_button"
         action Return()
 
+    ## Remove this line if you don't want to show the screen
+    ## title text as a label (for example, if it's baked into
+    ## the background image.)
     label title
 
     if main_menu:

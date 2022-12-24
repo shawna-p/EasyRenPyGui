@@ -120,7 +120,8 @@ style skip_triangle:
 ## Auto indicator screen #######################################################
 ##
 ## This screen is used to indicate that auto-forward mode is in progress.
-## Added by me, Fen.
+## Added by me, Feniks. You may remove this whole section if you don't need
+## an auto-forward indicator screen.
 ##
 
 init python:

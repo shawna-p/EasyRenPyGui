@@ -4,8 +4,8 @@
 ## them. Lines beginning with a single '#' mark are commented-out code, and you
 ## may want to uncomment them when appropriate.
 
-## TODO: Change these top three strings with "FreshProject" to the
-## name of your own project!
+## TODO: Change these top three values (config.name, build.name,
+## and config.save_directory) to something unique for your project!
 
 ## Basics ######################################################################
 
@@ -14,13 +14,13 @@
 ##
 ## The _() surrounding the string marks it as eligible for translation.
 
-define config.name = _("FreshProject")
+define config.name = _("")
 
 ## A short name for the game used for executables and directories in the built
 ## distribution. This must be ASCII-only, and must not contain spaces, colons,
 ## or semicolons.
 
-define build.name = "FreshProject"
+define build.name = ""
 
 ## Save directory ##############################################################
 ##
@@ -36,7 +36,8 @@ define build.name = "FreshProject"
 ## This generally should not be changed, and if it is, should always be a
 ## literal string, not an expression.
 
-define config.save_directory = "FreshProject-1671818013"
+## Note: a typical save_directory value looks like "FreshProject-1671818013"
+define config.save_directory = None
 
 
 ## The version of the game.
@@ -186,8 +187,16 @@ init python:
 
     ## To archive files, classify them as 'archive'.
 
-    # build.classify('game/**.png', 'archive')
-    # build.classify('game/**.jpg', 'archive')
+    build.classify("game/**.webp", "archive")
+    build.classify("game/**.webm", "archive")
+    build.classify("game/**.png", "archive")
+    build.classify("game/**.jpg", "archive")
+    build.classify("game/**.ttf", "archive")
+    build.classify("game/**.otf", "archive")
+    build.classify("game/**.mp3", "archive")
+    build.classify("game/**.wav", "archive")
+    build.classify("game/**.ogg", "archive")
+    build.classify("game/**.rpyc", "archive")
 
     ## Files matching documentation patterns are duplicated in a mac app build,
     ## so they appear in both the app and the zip file.

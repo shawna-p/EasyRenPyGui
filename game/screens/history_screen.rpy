@@ -23,7 +23,7 @@ screen history():
     viewport:
         style_prefix 'game_menu'
         mousewheel True draggable True pagekeys True
-        scrollbars "vertical"
+        scrollbars "vertical" yinitial 1.0
 
         has vbox
 

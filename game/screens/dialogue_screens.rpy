@@ -184,14 +184,10 @@ style nvl_label:
 # The style for dialogue in NVL
 style nvl_dialogue:
     is say_dialogue
-    xpos 675 xanchor 0.0
+    xpos 675
     ypos 12
     xsize 885
     min_width 885
-    text_align 0.0
-    # You might change this to layout "subtitle" if you have
-    # the NVL dialogue centered (xalign/text_align 0.5)
-    layout "tex"
 
 # The style for dialogue said by the narrator in NVL
 style nvl_thought:
