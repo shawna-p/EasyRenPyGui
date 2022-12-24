@@ -1,3 +1,4 @@
+# Exclude rpyc files, except the ones in old-game
 *.rpyc
 !old-game/**
 
@@ -10,6 +11,8 @@ log.txt
 game/saves/persistent
 *.bak
 cache/
+# Note: if you DO use translations, remove this
+# to include them in the repository
 tl/
 
 game/cache/bytecode.rpyb
