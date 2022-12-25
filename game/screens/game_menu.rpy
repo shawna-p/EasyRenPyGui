@@ -1,11 +1,13 @@
 ## Game Menu screen ############################################################
 ##
 ## This lays out the basic common structure of a game menu screen. It's called
-## with the screen title, and displays the background, title, and navigation.
+## with the screen title, and displays the title and navigation.
 ##
-## The scroll parameter can be None, or one of "viewport" or "vpgrid". When
-## this screen is intended to be used with one or more children, which are
-## transcluded (placed) inside it.
+## This screen no longer includes a background, and it no longer transcludes
+## its contents. It is intended to be easily removable from any given menu
+## screen and thus you are required to do some of the heavy lifting for
+## setting up containers for the contents of your menu screens.
+##
 
 screen game_menu(title):
 
