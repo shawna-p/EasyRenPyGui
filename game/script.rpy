@@ -26,9 +26,14 @@ label start:
 
     e "Did you change the name and save directory of the game in options.rpy?"
 
-    $ renpy.notify("This is a notification")
+    $ answer = renpy.input("Did you change the values at the top of options.rpy?").strip().lower()
 
+    if answer == "yes":
+        "Good job"
+    else:
     e "If not, you should do so right away! Saves will not work properly until you do."
+
+    $ renpy.notify("This is a notification")
 
     menu:
         "This is a sample choice menu"

@@ -9,6 +9,20 @@
 ## See the original Confirm action here:
 ## https://www.renpy.org/doc/html/screen_actions.html#Confirm
 ##
+## It has three main use cases:
+## 1) CConfirm("You haven't unlocked this image yet.")
+##      This shows a prompt to the user with the provided text and a
+##      "Confirm" button to dismiss the prompt. There is no "Cancel" button.
+## 2) CConfirm("Purchase flower? ($10)", SetVariable('money', money-10))
+##      This shows a prompt with Confirm and Cancel buttons. The Confirm
+##      button dismisses the prompt and executes the action or list of
+##      actions provided after the prompt, and Cancel hides the prompt without
+##      executing any other actions.
+## 3) CConfirm("Go to the next chapter?", yes=Jump("chapter2"), no=MainMenu())
+##      This shows a prompt with Confirm and Cancel buttons. Clicking either
+##      button will dismiss the prompt in addition to performing the provided
+##      yes/no action.
+##
 
 init python:
 

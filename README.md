@@ -107,7 +107,7 @@ The history screen is set up for variable-height entries only and differs the gr
 
 The quick_menu screen `Q.Save` and `Q.Load` buttons have been removed.
 
-There is no navigation screen. Code which previously was found in the navigation screen is copied between the main_menu screen and the game_menu screen. These two screens have their own version of what used to be the navigation screen and thus can be modified without affecting one another. 
+There is no navigation screen. Code which previously was found in the navigation screen is copied between the main_menu screen and the game_menu screen. These two screens have their own version of what used to be the navigation screen and thus can be modified without affecting one another.
 
 ### Additions
 
@@ -115,16 +115,18 @@ The following features not normally included in a default Ren'Py project are inc
 
 * A section called **Custom Options** in `options.rpy` with defined configuration values for several configuration options I use frequently in my own projects.
 * Basic archiving code is added to `options.rpy` under the Build configuration section
-* The confirm screen has been updated to allow it to be shown with only one button action, often useful for simple confirmation prompts which the player need only read and dismiss the prompt. The button text has been updated to "Confirm" and "Cancel" instead of Yes/No to facilitate this approach. 
+* The confirm screen has been updated to allow it to be shown with only one button action, often useful for simple confirmation prompts which the player need only read and dismiss the prompt. The button text has been updated to "Confirm" and "Cancel" instead of Yes/No to facilitate this approach.
 
 In addition, there is a folder inside `game/` called **optional files** with the following contents:
 
 * afm_indicator.rpy
   * Includes an auto-forward indicator screen + accompanying code. It functions like the skip indicator, but shows while the player has auto-forward activated instead of while skipping.
-* special_labels.rpy
-  * This file includes blank labels for `splashscreen` and `after_load`, which are often used in various projects.
+* confirm_action.rpy
+  * Includes a custom screen action, CConfirm, which can be used to easily write confirmation prompt actions. Notably, unlike its built-in `Confirm` counterpart, if a `yes` action is not provided, the "Cancel" button will be omitted from the prompt and hitting "Confirm" will automatically dismiss the prompt.
 * gallery.rpy
   * This file has a basic gallery screen setup along with template gallery definitions.
+* special_labels.rpy
+  * This file includes blank labels for `splashscreen` and `after_load`, which are often used in various projects.
 
 Every file in the **optional files** folder is entirely self-contained and may be removed if it is unneeded.
 
