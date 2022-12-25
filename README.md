@@ -10,11 +10,13 @@ If you would like to quickly create a GitHub repository of your own using this t
 
 Otherwise, you can use the "Code" dropdown next to the "Use this template" button and either download a ZIP of the repository or use GitHub Desktop to do so.
 
-Once you've got the repository downloaded onto your computer, unzip it if necessary and relocate the outermost EasyRenPyGui folder to your Ren'Py project folder and rename it to whatever your project name is.
+Once you've got the repository downloaded onto your computer, unzip it if necessary and relocate the outermost EasyRenPyGui folder (the one with the `game/` folder inside it) to your Ren'Py project folder and rename it to whatever your project name is.
 
 Next, open `options.rpy` and change the top three values (config.name, build.name, and config.save_directory) to something unique for your project.
 
-Finally, inside the `audio/` and `images/` folders are two files called `delete this.md`. These are included only for the purposes of ensuring those folders are added to the repository and should be deleted. You can then start the Ren'Py launcher, launch your new game template, and begin adding to and modifying it.
+Finally, inside the `audio/` and `images/` folders are two files called `delete this.md`. These two `.md` files are included only for the purposes of ensuring those folders are added to the repository and should be deleted. You may also freely remove any file inside the `optional files/` folder that you don't need, as they are all standalone and can be removed without consequence.
+
+You can then start the Ren'Py launcher, launch your new game template, and begin adding to and modifying it.
 
 ## Features
 
@@ -102,6 +104,8 @@ The `main_menu` screen also includes its own copy of what was originally `screen
 All of the code which changes styles for variants, such as the "touch" variant of the quick_menu screen and the gui value updates for small screens, has been omitted. Thus, aside from some minor checks like the preferences not including windowed/fullscreen options, mobile builds will look identical to their desktop counterpart. The `gui/phone` folder has also been removed in accordance with this.
 
 The history screen is set up for variable-height entries only and differs the greatest from its default counterpart, using an `hbox` instead of positioning and labels. I have no plans to include the ability to have a fixed-height history log in this template, though you are of course free to adapt it to your own needs; this template is intended to be easy to modify.
+
+The quick_menu screen `Q.Save` and `Q.Load` buttons have been removed.
 
 ### Additions
 
