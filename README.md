@@ -120,6 +120,8 @@ In addition, there is a folder inside `game/` called **optional files** with the
   * Includes an auto-forward indicator screen + accompanying code. It displays the screen similarly to the skip indicator, but while the player has auto-forward activated instead of while skipping.
 * special_labels.rpy
   * This file includes blank labels for `splashscreen` and `after_load`, which are often used in various projects.
+* gallery.rpy
+  * This file has a basic gallery screen setup along with template gallery definitions.
 
 Every file in the **optional files** folder is entirely self-contained and may be removed if it is unneeded.
 
