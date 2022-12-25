@@ -6,13 +6,13 @@ The project is created for a 1920x1080 game resolution and is based off of a the
 
 ## How to Use
 
-If you would like to quickly create a GitHub repository of your own using this template, simply click GitHub's "Use this template" button in green on the repository. The template is not a fork of this repository or connected to it, so you can then just use it like a regular repository. For more on using template repositories, see <https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template/>.
+If you would like to quickly create a GitHub repository of your own using this template, simply click GitHub's "Use this template" button in green on the repository. The resulting repository is not a fork of this repository nor connected to it, so you can then just use it like a regular repository. For more on using template repositories, see <https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template/>.
 
 Otherwise, you can use the "Code" dropdown next to the "Use this template" button and either download a ZIP of the repository or use GitHub Desktop to do so.
 
 Once you've got the repository downloaded onto your computer, unzip it if necessary and relocate the outermost EasyRenPyGui folder (the one with the `game/` folder inside it) to your Ren'Py project folder and rename it to whatever your project name is.
 
-Next, open `options.rpy` and change the top three values (config.name, build.name, and config.save_directory) to something unique for your project.
+Next, open `options.rpy` and change the three values at the top of the file (`config.name`, `build.name`, and `config.save_directory`) to something unique for your project.
 
 Finally, inside the `audio/` and `images/` folders are two files called `delete this.md`. These two `.md` files are included only for the purposes of ensuring those folders are added to the repository and should be deleted. You may also freely remove any file inside the `optional files/` folder that you don't need, as they are all standalone and can be removed without consequence.
 
@@ -107,6 +107,8 @@ The history screen is set up for variable-height entries only and differs the gr
 
 The quick_menu screen `Q.Save` and `Q.Load` buttons have been removed.
 
+There is no navigation screen. Code which previously was found in the navigation screen is copied between the main_menu screen and the game_menu screen. These two screens have their own version of what used to be the navigation screen and thus can be modified without affecting one another. 
+
 ### Additions
 
 The following features not normally included in a default Ren'Py project are included in this template:
@@ -117,7 +119,7 @@ The following features not normally included in a default Ren'Py project are inc
 In addition, there is a folder inside `game/` called **optional files** with the following contents:
 
 * afm_indicator.rpy
-  * Includes an auto-forward indicator screen + accompanying code. It displays the screen similarly to the skip indicator, but while the player has auto-forward activated instead of while skipping.
+  * Includes an auto-forward indicator screen + accompanying code. It functions like the skip indicator, but shows while the player has auto-forward activated instead of while skipping.
 * special_labels.rpy
   * This file includes blank labels for `splashscreen` and `after_load`, which are often used in various projects.
 * gallery.rpy
