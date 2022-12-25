@@ -196,6 +196,7 @@ init python:
     build.classify("game/**.mp3", "archive")
     build.classify("game/**.wav", "archive")
     build.classify("game/**.ogg", "archive")
+    build.classify("game/**.rpy", "archive")
     build.classify("game/**.rpyc", "archive")
 
     ## Files matching documentation patterns are duplicated in a mac app build,
