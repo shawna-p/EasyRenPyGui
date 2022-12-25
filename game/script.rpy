@@ -31,7 +31,7 @@ label start:
     if answer == "yes":
         "Good job"
     else:
-    e "If not, you should do so right away! Saves will not work properly until you do."
+        e "If not, you should do so right away! Saves will not work properly until you do."
 
     $ renpy.notify("This is a notification")
 

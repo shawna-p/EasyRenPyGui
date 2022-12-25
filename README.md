@@ -125,6 +125,9 @@ In addition, there is a folder inside `game/` called **optional files** with the
   * Includes a custom screen action, CConfirm, which can be used to easily write confirmation prompt actions. Notably, unlike its built-in `Confirm` counterpart, if a `yes` action is not provided, the "Cancel" button will be omitted from the prompt and hitting "Confirm" will automatically dismiss the prompt.
 * gallery.rpy
   * This file has a basic gallery screen setup along with template gallery definitions.
+* mobile_input.rpy
+  * This screen includes a custom InputValue class, `EnterInputValue`, which starts with the input disabled by default. Pressing Enter while the prompt is enabled (open for text input) will disable it again. This makes it suitable for mobile devices, where the keyboard takes up much of the screen space and needs to be dismissed.
+  * An example screen using this class is also included for demonstration.
 * special_labels.rpy
   * This file includes blank labels for `splashscreen` and `after_load`, which are often used in various projects.
 
