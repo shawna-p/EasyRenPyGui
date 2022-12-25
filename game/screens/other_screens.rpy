@@ -32,7 +32,6 @@ screen about():
         label "[config.name!t]"
         text _("Version [config.version!t]\n")
 
-        ## gui.about is usually set in options.rpy.
         if gui.about:
             text "[gui.about!t]\n"
 
