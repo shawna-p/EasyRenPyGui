@@ -119,6 +119,8 @@ The following features not normally included in a default Ren'Py project are inc
 
 In addition, there is a folder inside `game/` called **optional files** with the following contents:
 
+* adjust_attributes.rpy
+  * This includes an Aliases class to simplify the setup of `config.adjust_attributes`.
 * afm_indicator.rpy
   * Includes an auto-forward indicator screen + accompanying code. It functions like the skip indicator, but shows while the player has auto-forward activated instead of while skipping.
 * confirm_action.rpy
