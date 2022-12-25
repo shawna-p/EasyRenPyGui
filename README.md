@@ -115,6 +115,7 @@ The following features not normally included in a default Ren'Py project are inc
 
 * A section called **Custom Options** in `options.rpy` with defined configuration values for several configuration options I use frequently in my own projects.
 * Basic archiving code is added to `options.rpy` under the Build configuration section
+* The confirm screen has been updated to allow it to be shown with only one button action, often useful for simple confirmation prompts which the player need only read and dismiss the prompt. The button text has been updated to "Confirm" and "Cancel" instead of Yes/No to facilitate this approach. 
 
 In addition, there is a folder inside `game/` called **optional files** with the following contents:
 
