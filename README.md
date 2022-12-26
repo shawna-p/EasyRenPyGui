@@ -135,6 +135,10 @@ In addition, there is a folder inside `game/` called **optional files** with the
 
 Every file in the **optional files** folder is entirely self-contained and may be removed if it is unneeded.
 
+## Final Notes
+
+This template is dynamic and may grow to include other optional features or updates as they are suggested or as I think of them. At any given time, however, this template should be a suitable starting point for a new project.
+
 ## Terms of Use
 
 You are free to clone and use this template however you wish. Credit as `Feniks` is not required but it is appreciated if you found the template useful. You can also check out my website, https://feniksdev.com/ which will refer to the template as a starting point for learning screen language.
