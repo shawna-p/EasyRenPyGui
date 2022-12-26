@@ -107,7 +107,7 @@ The history screen is set up for variable-height entries only and differs the gr
 
 The quick_menu screen `Q.Save` and `Q.Load` buttons have been removed.
 
-There is no navigation screen. Code which previously was found in the navigation screen is copied between the main_menu screen and the game_menu screen. These two screens have their own version of what used to be the navigation screen and thus can be modified without affecting one another.
+There is no navigation screen. Code which previously was found in the navigation screen is copied between the main_menu screen and the game_menu screen. These two screens have their own version of what used to be the navigation screen and thus can be modified without affecting one another. Additionally, navigation textbuttons no longer include the `size_group` property which makes them all the same size so they can be easily adapted into other containers.
 
 ### Additions
 

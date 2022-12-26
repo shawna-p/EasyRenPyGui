@@ -14,7 +14,6 @@ screen game_menu(title):
     style_prefix "game_menu"
 
     vbox:
-        style_prefix "navigation"
         xpos 60 yalign 0.5
         spacing 6
 

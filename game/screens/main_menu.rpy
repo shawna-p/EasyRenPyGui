@@ -19,7 +19,6 @@ screen main_menu():
     add "main_menu_background"
 
     vbox:
-        style_prefix "navigation"
         xpos 60
         yalign 0.5
         spacing 6
@@ -43,8 +42,3 @@ screen main_menu():
             ## Web.
             textbutton _("Quit") action Quit(confirm=not main_menu)
 
-
-style navigation_button:
-    # Note: this makes the navigation buttons the same size!!
-    # If they're not in a vbox, you should delete this
-    size_group "navigation"
