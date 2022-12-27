@@ -75,7 +75,7 @@ style history_name:
 style history_name_text:
     text_align 1.0
     align (1.0, 0.0)
-    color gui.accent_color
+    color '#cccc00'
 
 style history_text:
     text_align 0.0

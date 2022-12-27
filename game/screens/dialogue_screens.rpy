@@ -64,7 +64,7 @@ style namebox:
 
 # Style for the text with the speaker's name
 style say_label:
-    color gui.accent_color
+    color '#cccc00'
     xalign 0.0
     yalign 0.5
     size 45
@@ -111,7 +111,7 @@ style quick_button:
 
 style quick_button_text:
     size 21
-    selected_color gui.accent_color
+    selected_color '#cccc00'
     idle_color "#aaa"
 
 ## NVL screen ##################################################################

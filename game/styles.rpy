@@ -33,19 +33,11 @@ define gui.name_text_font = gui.preference("name_font", "DejaVuSans.ttf")
 # The size for character names
 define gui.name_text_size = gui.preference("name_size", 45)
 
-## Colors ######################################################################
-##
-## The colors of text in the interface.
-
-## An accent color used throughout the interface to label and highlight text.
-define gui.accent_color = '#cccc00'
-
-
 ## Localization ################################################################
 
 ## This controls where a line break is permitted. The default is suitable
-## for most languages. A list of available values can be found at https://
-## www.renpy.org/doc/html/style_properties.html#style-property-language
+## for most languages. A list of available values can be found at
+## https://www.renpy.org/doc/html/style_properties.html#style-property-language
 
 define gui.language = "unicode"
 
@@ -94,9 +86,10 @@ style button_text:
     ## The color used for a text button when it cannot be selected.
     insensitive_color '#8888887f'
 
-style label_text is gui_text:
+style label_text:
+    is gui_text
     size 36
-    color gui.accent_color
+    color '#cccc00'
 
 
 style bar:
