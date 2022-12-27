@@ -16,7 +16,22 @@ init python:
 ################################################################################
 ## GUI Configuration Variables
 ################################################################################
+## Some choice gui values have been left in, to make them
+## easier to adjust for accessibility purposes e.g. to allow
+## players to change the default text font or size by rebuilding the gui.
+## You may add more back if you need to adjust them, or find-and-replace
+## any instances where they are used directly with their value.
 
+# The text font for dialogue and choice menus
+define gui.text_font = gui.preference("font", "DejaVuSans.ttf")
+# The text font for buttons
+define gui.interface_text_font = gui.preference("interface_font", "DejaVuSans.ttf")
+# The default size of in-game text
+define gui.text_size = gui.preference("size", 33)
+# The font for character names
+define gui.name_text_font = gui.preference("name_font", "DejaVuSans.ttf")
+# The size for character names
+define gui.name_text_size = gui.preference("name_size", 45)
 
 ## Colors ######################################################################
 ##
@@ -53,21 +68,6 @@ define gui.interface_text_color = '#ffffff'
 
 
 ## Fonts and Font Sizes ########################################################
-
-## The font used for in-game text.
-define gui.text_font = "DejaVuSans.ttf"
-
-## The font used for character names.
-define gui.name_text_font = "DejaVuSans.ttf"
-
-## The font used for out-of-game text.
-define gui.interface_text_font = "DejaVuSans.ttf"
-
-## The size of normal dialogue text.
-define gui.text_size = 33
-
-## The size of character names.
-define gui.name_text_size = 45
 
 ## The size of text in the game's user interface.
 define gui.interface_text_size = 33
