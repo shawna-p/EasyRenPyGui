@@ -110,7 +110,7 @@ style page_label:
 style page_label_text:
     text_align 0.5
     layout "subtitle"
-    hover_color gui.hover_color
+    hover_color '#e0e066'
 
 style slot_grid:
     xalign 0.5
@@ -129,9 +129,9 @@ style slot_button:
 style slot_button_text:
     size 21
     xalign 0.5
-    idle_color gui.idle_small_color
-    hover_color gui.hover_color
-    selected_idle_color gui.selected_color
+    idle_color '#aaaaaa'
+    hover_color '#e0e066'
+    selected_idle_color '#ffffff'
 
 style page_hbox:
     xalign 0.5

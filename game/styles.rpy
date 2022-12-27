@@ -40,37 +40,6 @@ define gui.name_text_size = gui.preference("name_size", 45)
 ## An accent color used throughout the interface to label and highlight text.
 define gui.accent_color = '#cccc00'
 
-## The color used for a text button when it is neither selected nor hovered.
-define gui.idle_color = '#888888'
-
-## The small color is used for small text, which needs to be brighter/darker to
-## achieve the same effect.
-define gui.idle_small_color = '#aaaaaa'
-
-## The color that is used for buttons and bars that are hovered.
-define gui.hover_color = '#e0e066'
-
-## The color used for a text button when it is selected but not focused. A
-## button is selected if it is the current screen or preference value.
-define gui.selected_color = '#ffffff'
-
-## The color used for a text button when it cannot be selected.
-define gui.insensitive_color = '#8888887f'
-
-## Colors used for the portions of bars that are not filled in. These are not
-## used directly, but are used when re-generating bar image files.
-define gui.muted_color = '#515100'
-define gui.hover_muted_color = '#7a7a00'
-
-## The colors used for dialogue and menu choice text.
-define gui.text_color = '#ffffff'
-define gui.interface_text_color = '#ffffff'
-
-
-## Fonts and Font Sizes ########################################################
-
-## The size of text in the game's user interface.
-define gui.interface_text_size = 33
 
 ## Localization ################################################################
 
@@ -92,7 +61,8 @@ init offset = -1
 ################################################################################
 
 style default:
-    properties gui.text_properties()
+    font gui.text_font
+    size gui.text_size
     language gui.language
 
 style input:
@@ -102,21 +72,27 @@ style hyperlink_text:
     hover_underline True
 
 style gui_text:
-    properties gui.text_properties("interface")
-
+    color '#ffffff'
+    size gui.text_size
+    font gui.interface_text_font
 
 style button:
     xysize (None, None)
     padding (0, 0)
 
-style button_text is gui_text:
-    properties gui.text_properties("button")
+style button_text:
+    is gui_text
     yalign 0.5
     xalign 0.0
-    idle_color gui.idle_color
-    hover_color gui.hover_color
-    selected_color gui.selected_color
-    insensitive_color gui.insensitive_color
+    ## The color used for a text button when it is neither selected nor hovered.
+    idle_color '#888888'
+    ## The color that is used for buttons and bars that are hovered.
+    hover_color '#e0e066'
+    ## The color used for a text button when it is selected but not focused. A
+    ## button is selected if it is the current screen or preference value.
+    selected_color '#ffffff'
+    ## The color used for a text button when it cannot be selected.
+    insensitive_color '#8888887f'
 
 style label_text is gui_text:
     size 36
