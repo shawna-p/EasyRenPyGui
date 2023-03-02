@@ -3,6 +3,7 @@
 !old-game/**
 
 *.rpyc~
+*.rpymc
 *.rpy~
 log.txt
 *.save
