@@ -186,7 +186,7 @@ init python:
     build.classify('**/thumbs.db', None)
     build.classify('**.psd', None)
     build.classify('game/cache/**', None)
-    ## NOTE: This excludes markdown and txt files. If you use these formates
+    ## NOTE: This excludes markdown and txt files. If you use these formats
     ## for README or instructions, you may want to remove these lines.
     build.classify('**.txt', None)
     build.classify('**.md', None)
