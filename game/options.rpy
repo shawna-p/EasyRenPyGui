@@ -184,11 +184,21 @@ init python:
     build.classify('**/.**', None)
     build.classify('**/#**', None)
     build.classify('**/thumbs.db', None)
+    build.classify('**.psd', None)
+    build.classify('game/cache/**', None)
+    ## NOTE: This excludes markdown and txt files. If you use these formates
+    ## for README or instructions, you may want to remove these lines.
+    build.classify('**.txt', None)
+    build.classify('**.md', None)
 
     ## To archive files, classify them as 'archive'.
 
+    build.classify("game/**.rpy", "archive")
+    build.classify("game/**.rpym", "archive")
+
     build.classify("game/**.webp", "archive")
     build.classify("game/**.webm", "archive")
+    build.classify("game/**.mp4", "archive")
     build.classify("game/**.png", "archive")
     build.classify("game/**.jpg", "archive")
     build.classify("game/**.ttf", "archive")
@@ -196,14 +206,9 @@ init python:
     build.classify("game/**.mp3", "archive")
     build.classify("game/**.wav", "archive")
     build.classify("game/**.ogg", "archive")
-    build.classify("game/**.rpy", "archive")
+    build.classify("game/**.opus", "archive")
     build.classify("game/**.rpyc", "archive")
-
-    ## Files matching documentation patterns are duplicated in a mac app build,
-    ## so they appear in both the app and the zip file.
-
-    build.documentation('*.html')
-    build.documentation('*.txt')
+    build.classify("game/**.rpymc", "archive")
 
 
 ## A Google Play license key is required to download expansion files and perform
