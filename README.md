@@ -142,3 +142,8 @@ This template is dynamic and may grow to include other optional features or upda
 ## Terms of Use
 
 You are free to clone and use this template however you wish. Credit as `Feniks` is not required but it is appreciated if you found the template useful. You can also check out my website, https://feniksdev.com/ which will refer to the template as a starting point for learning screen language.
+
+
+## Like my work?
+
+[![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/fen)
