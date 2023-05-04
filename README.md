@@ -2,7 +2,7 @@
 
 A template project intended to make it easier to replace the default GUI. This project has ripped out most of the gui properties so that you are left only with the defaults and simplifies styles so that they are easier to understand and modify.
 
-The project is created for a 1920x1080 game resolution and is based off of a the default game files generated for a game made with Ren'Py 7.5.3 or 8.0.3. You may adjust the dimensions in `gui.init`, but you will likely have to change many of the hardcoded style values to suit the new resolution.
+The project is created for a 1920x1080 game resolution and is based off of the default game files generated for a game made with Ren'Py 7.5.3 or 8.0.3. You may adjust the dimensions in `gui.init`, but you will likely have to change many of the hardcoded style values to suit the new resolution.
 
 ## How to Use
 
