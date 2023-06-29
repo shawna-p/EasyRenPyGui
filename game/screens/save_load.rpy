@@ -72,6 +72,7 @@ screen file_slots(title):
 
                     add FileScreenshot(slot) xalign 0.5
 
+                   ## https://www.fabriziomusacchio.com/blog/2021-08-15-strftime_Cheat_Sheet/
                     text FileTime(slot,
                             format=_("{#file_time}%A, %B %d %Y, %H:%M"),
                             empty=_("empty slot")):
