@@ -27,7 +27,6 @@ screen say(who, what):
 
         text what id "what"
 
-
     ## If there's a side image, display it in front of the text.
     add SideImage() xalign 0.0 yalign 1.0
 
@@ -39,17 +38,15 @@ init python:
 # Style for the dialogue window
 style window:
     xalign 0.5
-    xfill True
     yalign 1.0
-    ysize 278
+    xysize (1231, 277)
+    padding (40, 10, 40, 40)
     background Image("gui/textbox.png", xalign=0.5, yalign=1.0)
 
 # Style for the dialogue
 style say_dialogue:
-    xpos 402
-    xsize 1116
-    ypos 75
     adjust_spacing False
+    ypos 60
 
 # The style for dialogue said by the narrator
 style say_thought:
@@ -57,14 +54,14 @@ style say_thought:
 
 # Style for the box containing the speaker's name
 style namebox:
-    xpos 233
+    xpos 20
     xysize (None, None)
     background Frame("gui/namebox.png", 5, 5, 5, 5, tile=False, xalign=0.0)
     padding (5, 5, 5, 5)
 
 # Style for the text with the speaker's name
 style say_label:
-    color '#cccc00'
+    color '#f93c3e'
     xalign 0.0
     yalign 0.5
     size 45
@@ -102,7 +99,7 @@ default quick_menu = True
 
 style quick_hbox:
     xalign 0.5
-    yalign 1.0
+    yalign 1.0 yoffset -8
     spacing 8
 
 style quick_button:
@@ -111,7 +108,7 @@ style quick_button:
 
 style quick_button_text:
     size 21
-    selected_color '#cccc00'
+    selected_color '#f93c3e'
     idle_color "#aaa"
 
 ## NVL screen ##################################################################

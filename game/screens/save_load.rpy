@@ -1,5 +1,3 @@
-
-
 ## Load and Save screens #######################################################
 ##
 ## These screens are responsible for letting the player save the game and load
@@ -19,7 +17,7 @@ screen save():
 
     tag menu
 
-    add "#91e8fe72" # The background; can be whatever
+    add HBox(Transform("#292835", xsize=350), "#21212db2") # The background; can be whatever
 
     use file_slots(_("Save"))
 
@@ -28,7 +26,7 @@ screen load():
 
     tag menu
 
-    add "#91fefc72" # The background; can be whatever
+    add HBox(Transform("#292835", xsize=350), "#21212db2") # The background; can be whatever
 
     use file_slots(_("Load"))
 
@@ -72,7 +70,7 @@ screen file_slots(title):
 
                     add FileScreenshot(slot) xalign 0.5
 
-                   ## https://www.fabriziomusacchio.com/blog/2021-08-15-strftime_Cheat_Sheet/
+                    ## https://www.fabriziomusacchio.com/blog/2021-08-15-strftime_Cheat_Sheet/
                     text FileTime(slot,
                             format=_("{#file_time}%A, %B %d %Y, %H:%M"),
                             empty=_("empty slot")):
@@ -111,7 +109,7 @@ style page_label:
 style page_label_text:
     text_align 0.5
     layout "subtitle"
-    hover_color '#e0e066'
+    hover_color '#ff8335'
 
 style slot_grid:
     xalign 0.5
@@ -122,6 +120,9 @@ style slot_time_text:
     size 25
     xalign 0.5
 
+style slot_vbox:
+    spacing 12
+
 style slot_button:
     xysize (414, 309)
     padding (15, 15, 15, 15)
@@ -131,7 +132,7 @@ style slot_button_text:
     size 21
     xalign 0.5
     idle_color '#aaaaaa'
-    hover_color '#e0e066'
+    hover_color '#ff8335'
     selected_idle_color '#ffffff'
 
 style page_hbox:

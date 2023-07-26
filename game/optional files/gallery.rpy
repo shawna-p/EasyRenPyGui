@@ -50,7 +50,7 @@ screen gallery():
 
     tag menu
 
-    add "#5d65a8ad" # The background; can be whatever
+    add HBox(Transform("#292835", xsize=350), "#21212db2") # The background; can be whatever
 
     use game_menu(_("Gallery"))
 

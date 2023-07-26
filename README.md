@@ -14,7 +14,7 @@ Once you've got the repository downloaded onto your computer, unzip it if necess
 
 Next, open `options.rpy` and change the three values at the top of the file (`config.name`, `build.name`, and `config.save_directory`) to something unique for your project.
 
-Finally, inside the `audio/` and `images/` folders are two files called `delete this.md`. These two `.md` files are included only for the purposes of ensuring those folders are added to the repository and should be deleted. You may also freely remove any file inside the `optional files/` folder that you don't need, as they are all standalone and can be removed without consequence.
+Finally, inside the `audio/`, `fonts/`, and `images/` folders are files called `delete this.md`. These three `.md` files are included only for the purposes of ensuring those folders are added to the repository and should be deleted. You may also freely remove any file inside the `optional files/` folder that you don't need, as they are all standalone and can be removed without consequence.
 
 You can then start the Ren'Py launcher, launch your new game template, and begin adding to and modifying it.
 
@@ -49,7 +49,7 @@ style nvl_dialogue:
     min_width 885
 ```
 
-This reduces how often it's necessary to flip back and forth between different `.rpy` files to find the correct values, and also reduces the instances where changing one gui value can have a cascading effect changing multiple other styles across different screens.
+This removes the need to flip back and forth between different `.rpy` files to find the correct values, and also reduces the instances where changing one gui value can have a cascading effect changing multiple other styles across different screens.
 
 ### Structural Changes
 
@@ -142,7 +142,6 @@ This template is dynamic and may grow to include other optional features or upda
 ## Terms of Use
 
 You are free to clone and use this template however you wish. Credit as `Feniks` is not required but it is appreciated if you found the template useful. You can also check out my website, https://feniksdev.com/ which will refer to the template as a starting point for learning screen language.
-
 
 ## Like my work?
 

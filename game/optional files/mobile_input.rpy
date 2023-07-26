@@ -32,14 +32,14 @@ init python:
             renpy.run(self.Disable())
             raise renpy.IgnoreEvent()
 
-default name = "Feniks"
+default demo_name = "Feniks"
 
 ## An example screen using EnterInputValue
 screen name_input_screen():
 
     ## The "object" here is `store` since it's a regular store variable.
     ## If the variable was persistent.name, it would use `persistent` instead.
-    default name_input = EnterInputValue(store, 'name')
+    default name_input = EnterInputValue(store, 'demo_name')
 
     add "#601249bb"
 

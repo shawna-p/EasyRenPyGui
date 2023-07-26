@@ -7,8 +7,8 @@
 
 ## Replace this with your background image, if you like
 image main_menu_background = HBox(
-    Solid("#13262d", xsize=350),
-    Solid("#326d76")
+    Solid("#292835", xsize=350),
+    Solid("#21212d")
 )
 
 screen main_menu():

@@ -10,7 +10,7 @@ screen preferences():
 
     tag menu
 
-    add "#a8845dad" # The background; can be whatever
+    add HBox(Transform("#292835", xsize=350), "#21212db2") # The background; can be whatever
 
     use game_menu(_("Preferences"))
 
@@ -116,7 +116,7 @@ style radio_vbox:
 
 style radio_button:
     foreground "gui/button/radio_[prefix_]foreground.png"
-    padding (27, 6, 6, 6)
+    padding (35, 6, 6, 6)
 
 ## CHECK
 style check_label:
@@ -130,7 +130,7 @@ style check_vbox:
 
 style check_button:
     foreground "gui/button/check_[prefix_]foreground.png"
-    padding (27, 6, 6, 6)
+    padding (35, 6, 6, 6)
 
 ## SLIDER
 style slider_label:

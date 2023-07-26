@@ -10,6 +10,7 @@
 ## triple-quotes, and leave a blank line between paragraphs.
 
 define gui.about = _p("""
+EasyRenPyGui is made by {a=https://github.com/shawna-p}Feniks{/a} {a=https://feniksdev.com/}@feniksdev.com{/a}
 """)
 
 
@@ -17,7 +18,7 @@ screen about():
 
     tag menu
 
-    add "#fe91e872" # The background; can be whatever
+    add "#21212db2" # The background; can be whatever
 
     use game_menu(_("About"))
 
@@ -54,7 +55,7 @@ screen help():
 
     default device = "keyboard"
 
-    add "#e191fe72" # The background; can be whatever
+    add HBox(Transform("#292835", xsize=350), "#21212db2") # The background; can be whatever
 
     use game_menu(_("Help"))
 

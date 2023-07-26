@@ -16,7 +16,7 @@ screen history():
     ## Avoid predicting this screen, as it can be very large.
     predict False
 
-    add "#62a35e72" # The background; can be whatever
+    add HBox(Transform("#292835", xsize=350), "#21212db2") # The background; can be whatever
 
     use game_menu(_("History"))
 
@@ -75,7 +75,7 @@ style history_name:
 style history_name_text:
     text_align 1.0
     align (1.0, 0.0)
-    color '#cccc00'
+    color '#f93c3e'
 
 style history_text:
     text_align 0.0

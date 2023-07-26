@@ -23,13 +23,14 @@ style choice_vbox:
 
 style choice_button:
     is default # This means it doesn't use the usual button styling
-    xysize (1185, None)
+    xysize (926, None)
     background Frame("gui/button/choice_[prefix_]background.png",
-        150, 8, 150, 8, tile=False)
+        150, 25, 150, 25, tile=False)
+    padding (12, 12)
 
 style choice_button_text:
     is default # This means it doesn't use the usual button text styling
-    xalign 0.5
+    xalign 0.5 yalign 0.5
     idle_color "#ccc"
     hover_color "#fff"
     insensitive_color "#444"
