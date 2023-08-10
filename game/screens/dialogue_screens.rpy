@@ -64,7 +64,8 @@ style say_label:
     color '#f93c3e'
     xalign 0.0
     yalign 0.5
-    size 45
+    size gui.name_text_size
+    font gui.name_text_font
 
 
 ## Quick Menu screen ###########################################################
