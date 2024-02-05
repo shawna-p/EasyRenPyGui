@@ -2,13 +2,21 @@
 
 A template project intended to make it easier to replace the default GUI. This project has ripped out most of the gui properties so that you are left only with the defaults and simplifies styles so that they are easier to understand and modify.
 
-The project is created for a 1920x1080 game resolution and is based off of the default game files generated for a game made with Ren'Py 7.5.3 or 8.0.3. It will also work for newer versions of Ren'Py, like 8.1.1 and 7.6.1, and may have some compatibility with older engine versions. You may adjust the dimensions in `gui.init`, but you will likely have to change many of the hardcoded style values to suit the new resolution.
+The project is created for a 1920x1080 game resolution and is based off of the default game files generated for a game made with Ren'Py 8.2.0. It will also work for versions 8.1.1 and 7.6.1, but for older versions you should pick up the 8.0 version from the releases tab. You may adjust the dimensions in `gui.init`, but you will likely have to change many of the hardcoded style values to suit the new resolution.
+
+## Note on Template Projects
+
+As of 7.7/8.2, Ren'Py will also accept templates, which will be used to create new projects. EasyRenPyGui has been set up as a template project, with one caveat - template projects require `screens.rpy` and `gui.rpy` to exist in the project. It is possible for these files to be blank, but they must exist.
+
+Therefore, if you would like to use EasyRenPyGui as a template for creating new projects in the Ren'Py launcher, **you must create screens.rpy and gui.rpy in the game/ folder**. Again, they can be blank files. Put EasyRenPyGui in your project folder for Ren'Py to find. Then you will be able to create a new project and select EasyRenPyGui as the template. The new project will also have blank gui.rpy and screens.rpy files, which you can then delete.
+
+The main benefit to this is that Ren'Py will take care of setting the save directory and config.name for the new project (which you must otherwise remember to do yourself).
 
 ## How to Use
 
 If you would like to quickly create a GitHub repository of your own using this template, simply click GitHub's "Use this template" button in green on the repository. The resulting repository is not a fork of this repository nor connected to it, so you can then just use it like a regular repository. For more on using template repositories, see <https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template/>.
 
-Otherwise, you can use the "Code" dropdown next to the "Use this template" button and either download a ZIP of the repository or use GitHub Desktop to do so.
+Otherwise, for 7.7/8.2 you have the option to make EasyRenPyGui a template project (see the note above), or you can use the "Code" dropdown next to the "Use this template" button and either download a ZIP of the repository or use GitHub Desktop to do so.
 
 Once you've got the repository downloaded onto your computer, unzip it if necessary and relocate the outermost EasyRenPyGui folder (the one with the `game/` folder inside it) to your Ren'Py project folder and rename it to whatever your project name is.
 
@@ -33,7 +41,7 @@ style nvl_dialogue:
     ypos gui.nvl_text_ypos
     xsize gui.nvl_text_width
     min_width gui.nvl_text_width
-    text_align gui.nvl_text_xalign
+    textalign gui.nvl_text_xalign
     layout ("subtitle" if gui.nvl_text_xalign else "tex")
 ```
 
@@ -66,6 +74,7 @@ You can find the default screens in the following files:
   * screen quick_menu
   * screen nvl
     * screen nvl_dialogue
+  * screen bubble
 * game_menu.rpy
   * screen game_menu
 * history_screen.rpy

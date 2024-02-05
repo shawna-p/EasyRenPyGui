@@ -49,7 +49,7 @@ style confirm_prompt:
     xalign 0.5
 
 style confirm_prompt_text:
-    text_align 0.5
+    textalign 0.5
     align (0.5, 0.5)
     layout "subtitle"
 
@@ -61,7 +61,7 @@ style confirm_button:
     xalign 0.5
 
 style confirm_button_text:
-    text_align 0.5
+    textalign 0.5
 
 
 ## Skip indicator screen #######################################################

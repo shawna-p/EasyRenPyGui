@@ -178,7 +178,7 @@ screen gamepad_help():
         text _("Navigate the interface.")
 
     hbox:
-        label _("Start, Guide")
+        label _("Start, Guide, B/Right Button")
         text _("Accesses the game menu.")
 
     hbox:
@@ -197,4 +197,4 @@ style help_label:
 
 style help_label_text:
     xalign 1.0
-    text_align 1.0
+    textalign 1.0

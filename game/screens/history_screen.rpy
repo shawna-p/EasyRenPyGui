@@ -73,12 +73,12 @@ style history_name:
     xalign 1.0
 
 style history_name_text:
-    text_align 1.0
+    textalign 1.0
     align (1.0, 0.0)
     color '#f93c3e'
 
 style history_text:
-    text_align 0.0
+    textalign 0.0
 
 style history_label:
     xfill True

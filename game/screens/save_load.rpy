@@ -83,22 +83,30 @@ screen file_slots(title):
                     key "save_delete" action FileDelete(slot)
 
         ## Buttons to access other pages.
-        hbox:
+        vbox:
             style_prefix "page"
+            hbox:
+                textbutton _("<") action FilePagePrevious()
 
-            textbutton _("<") action FilePagePrevious()
+                if config.has_autosave:
+                    textbutton _("{#auto_page}A") action FilePage("auto")
 
-            if config.has_autosave:
-                textbutton _("{#auto_page}A") action FilePage("auto")
+                if config.has_quicksave:
+                    textbutton _("{#quick_page}Q") action FilePage("quick")
 
-            if config.has_quicksave:
-                textbutton _("{#quick_page}Q") action FilePage("quick")
+                ## range(1, 10) gives the numbers from 1 to 9.
+                for page in range(1, 10):
+                    textbutton "[page]" action FilePage(page)
 
-            ## range(1, 10) gives the numbers from 1 to 9.
-            for page in range(1, 10):
-                textbutton "[page]" action FilePage(page)
+                textbutton _(">") action FilePageNext()
 
-            textbutton _(">") action FilePageNext()
+            if config.has_sync:
+                if CurrentScreenName() == "save":
+                    textbutton _("Upload Sync"):
+                        action UploadSync()
+                else:
+                    textbutton _("Download Sync"):
+                        action DownloadSync()
 
 
 style page_label:
@@ -107,7 +115,7 @@ style page_label:
     xalign 0.5
 
 style page_label_text:
-    text_align 0.5
+    textalign 0.5
     layout "subtitle"
     hover_color '#ff8335'
 
@@ -137,9 +145,14 @@ style slot_button_text:
 
 style page_hbox:
     xalign 0.5
+    spacing 5
+
+style page_vbox:
+    xalign 0.5
     yalign 1.0
     spacing 5
 
 style page_button:
     padding (15, 6, 15, 6)
+    xalign 0.5
 
